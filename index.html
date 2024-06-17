@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Definición del tipo de documento y el idioma -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título de la página -->
+    <title>Veterinaria - Inicio</title>
+    <!-- Enlace a la hoja de estilos de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Enlace a tu archivo de estilos personalizado -->
+    <link href="CSS/styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Menú de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Contenedor fluido para la barra de navegación -->
+        <div class="container-fluid">
+            <!-- Marca de la barra de navegación -->
+            <a class="navbar-brand" href="#">Prog Web</a>
+            <!-- Botón para dispositivos pequeños -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Elementos del menú -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Elementos del menú a la izquierda -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- Opción de menú activa -->
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" id="homeLink" href="#">Home</a>
+                    </li>
+                    <!-- Otra opción de menú -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Nosotros</a>
+                    </li>
+                    <!-- Enlace para abrir el modal de inicio de sesión -->
+                    <li class="nav-item">
+                        <a class="nav-link" id="iniciarSesion" href="#">Iniciar Sesión</a>
+                    </li>
+                    <!-- Enlace para abrir el modal de registro -->
+                    <li class="nav-item">
+                        <a class="nav-link" id="registro" href="#">Registrarse</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mensaje registro exitoso -->
+    <div id="registroExitosoMensaje" style="display: none; background-color: #d4edda; color: #155724; border-color: #c3e6cb; padding: .75rem 1.25rem; margin-bottom: 1rem; border: 1px solid transparent; border-radius: .25rem;">
+        ¡Registro exitoso! Puedes iniciar sesión ahora.
+    </div>
+
+    <div id="registroFallidoMensaje" style="display: none; background-color: #f8d7da; color: #721c24; border-color: #f5c6cb; padding: .75rem 1.25rem; margin-bottom: 1rem; border: 1px solid transparent; border-radius: .25rem;">
+        ¡Registro fallido! El correo ya está registrado.
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="main-content">
+        <!-- Jumbotron -->
+        <div class="jumbotron jumbotron-fluid text-center">
+            <!-- Fondo del jumbotron -->
+            <div class="jumbotron-background">
+                <!-- Contenedor del jumbotron -->
+                <div class="container">
+                    <!-- Título y subtítulo del jumbotron -->
+                    <h1 class="display-4">Bienvenido a la Veterinaria</h1>
+                    <p class="lead">Cuidamos a tus mascotas con amor y profesionalismo.</p>
+                </div>
+
+                <!-- Formulario de inicio de sesión oculto -->
+                <div id="loginFormContainer" class="hidden">
+                    <form id="loginForm" action="login.php" method="POST">
+                        <!-- Imagen -->
+                        <div class="text-center mb-3">
+                            <img src="https://i.pinimg.com/originals/2a/4b/64/2a4b64142ad808bfe4bf8d028cb3abce.gif"
+                                alt="Imagen de inicio de sesión" style="max-width: 100px;">
+                        </div>
+                        <!-- Texto de inicio de sesión -->
+                        <h2 class="text-center mb-3">Iniciar Sesión</h2>
+                        <!-- Campo de email -->
+                        <div class="form-group mb-3">
+                            <label for="loginEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="loginEmail" name="email" placeholder="Introduce tu email"
+                                required>
+                        </div>
+                        <!-- Campo de contraseña -->
+                        <div class="form-group mb-3">
+                            <label for="loginPassword" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="loginPassword" name="password"
+                                placeholder="Introduce tu contraseña" required>
+                        </div>
+                        <!-- Botón de inicio de sesión -->
+                        <button type="submit" class="btn btn-primary d-block w-100 mb-3">Iniciar Sesión</button>
+                    </form>
+                </div>
+
+                <!-- Formulario de registro oculto -->
+                <div id="registerFormContainer" class="hidden">
+                    <!-- Formulario de registro -->
+                    <form id="registroForm" action="insertar_registro.php" method="POST">
+                        <!-- Imagen -->
+                        <div class="text-center mb-3">
+                            <img src="https://i.pinimg.com/originals/2a/4b/64/2a4b64142ad808bfe4bf8d028cb3abce.gif"
+                                alt="Imagen de registro" style="max-width: 100px;">
+                        </div>
+                        <!-- Texto de Registro -->
+                        <h2 class="text-center mb-3">Registo</h2>
+                        <!-- Campo de entrada para el nombre -->
+                        <div class="form-group mb-3">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Introduce tu nombre" required>
+                        </div>
+                        <!-- Campo de entrada para el email -->
+                        <div class="form-group mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="correo" placeholder="Introduce tu email" required>
+                        </div>
+                        <!-- Campo de entrada para la contraseña -->
+                        <div class="form-group mb-3">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="password" name="contrasenia"  placeholder="Introduce tu contraseña" required>
+                        </div>
+                        <!-- Botón para registrar -->
+                        <button type="submit" name="submit" class="btn btn-primary d-block w-100 mb-3">Registrarse</button>
+                    </form>
+                </div>
+
+                <!-- Carrusel -->
+                <div id="miCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/1.png" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/2.png" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/3.png" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <!-- Footer -->
+            <footer class="bg-dark text-light text-center py-3">
+                <div class="container">
+                    <p>© 2022 Veterinaria. Todos los derechos reservados. | <a
+                            href="mailto:info@veterinaria.com">info@veterinaria.com</a> | +1 (234) 567-8901</p>
+                </div>
+            </footer>
+            <!-- Scripts al final del body para acelerar la carga -->
+            <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+                crossorigin="anonymous"></script>
+            <script src="JS/scripts.js"></script>
+</body>
+
+
+
+</html>
